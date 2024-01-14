@@ -1,0 +1,439 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+/* INDEX */
+body {
+  background: #e4e9f7;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+}
+.box {
+  background: #fdfdfd;
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  padding: 25px 25px;
+  border-radius: 20px;
+  box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+    0 32px 64px -48px rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  position: relative;
+}
+.form-box {
+  width: 450px;
+  margin: 0px 10px;
+}
+.form-box header {
+  font-size: 25px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 10px;
+}
+.form-box form .field {
+  display: flex;
+  margin-bottom: 10px;
+  flex-direction: column;
+}
+.form-box form .input input {
+  height: 40px;
+  width: 100%;
+  font-size: 16px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-bottom: 5px;
+}
+.btn {
+  height: 35px;
+  background: rgba(76, 68, 182, 0.808);
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0px 10px;
+}
+.btn:hover {
+  opacity: 0.82;
+}
+.btn-outline {
+  height: 35px;
+  background: rgba(76, 68, 182, 0.808);
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+  padding: 0px 10px;
+}
+.submit {
+  width: 100%;
+}
+.links {
+  margin-bottom: 10px;
+}
+
+/* ------------------------------------------ */
+/* HOME */
+.nav {
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: rgba(76, 68, 182, 0.808);
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #000;
+}
+
+.right-links a {
+  padding: 0 15px;
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+.right-links a:hover {
+  color: rgba(76, 68, 182, 0.808);
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.main-box {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.main-box .top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+.bottom {
+  width: 100%;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 840px) {
+  .main-box .top {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .top .box {
+    margin: 10px 10px;
+  }
+  .bottom {
+    margin-top: 0;
+  }
+}
+
+/* ------------------------------------------ */
+/* SEARCH BAR */
+.search-box {
+  background: #fdfdfd;
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  padding: 25px 25px;
+  border-radius: 20px;
+  box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+    0 32px 64px -48px rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  place-self: center;
+  width: 100%;
+  margin-top: 15px;
+}
+
+/* ------------------------------------------ */
+/* FOOTER */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+footer a {
+  color: white;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+.credits {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* ------------------------------------------ */
+/* RECIPE CARD */
+
+.save-btn {
+  height: 35px;
+  border-radius: 5px;
+  background-color: #40C057;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 0px 10px;
+}
+
+.recipe-card {
+  border: 1px solid #ddd;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 20px;
+  max-width: 400px;
+}
+
+.recipe-header {
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+}
+
+.recipe-image {
+  max-width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  border-radius: 15px;
+}
+
+.recipe-description {
+  margin-bottom: 15px;
+  word-wrap: break-word;
+}
+
+.show-more-btn {
+  height: 35px;
+  background: transparent;
+  border: 1px solid rgba(76, 68, 182, 0.808);
+  border-radius: 5px;
+  color: rgba(76, 68, 182, 0.808);
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.4s;
+  margin-top: 10px;
+  padding: 0px 10px;
+}
+
+.show-more-btn:hover {
+  background: rgba(76, 68, 182, 0.7);
+  color: #fff;
+}
+
+.additional-content {
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  margin-top: 15px;
+  display: none;
+  text-align: left;
+  padding: 10px;
+}
+
+.additional-content p {
+  margin-bottom: 8px;
+}
+
+/* ------------------------------------------ */
+/* Account */
+
+body {
+  background: #e4e9f7;
+}
+.container-account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+}
+.form-box-account header {
+  font-size: 25px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  text-align: center;
+}
+.form-box-account text {
+  font-size: 16px;
+  font-weight: 400;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #808080;
+}
+.form-box-account form .field {
+  display: flex;
+  margin-bottom: 10px;
+  flex-direction: column;
+}
+.form-box-account form .input input {
+  height: 40px;
+  width: 100%;
+  font-size: 16px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-bottom: 5px;
+}
+
+/* ------------------------------------------ */
+/* Create form */
+body {
+  background: #e4e9f7;
+}
+.container-create {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+.form-box-create header {
+  font-size: 25px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  text-align: center;
+}
+.form-box-create text {
+  font-size: 16px;
+  font-weight: 400;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #808080;
+}
+.form-box-create form .field {
+  display: flex;
+  margin-bottom: 10px;
+  flex-direction: column;
+}
+.form-box-create form .input input {
+  height: 40px;
+  width: 100%;
+  font-size: 16px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-bottom: 5px;
+}
+.close-link {
+  text-align: right;
+}
+.close-link a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.close-link a:hover {
+  color: rgba(76, 68, 182, 0.808);
+}
+
+
+/* ------------------------------------------ */
+/* ADMIN Users List */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  font-weight: bold;
+}
+
+tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
