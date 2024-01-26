@@ -24,7 +24,6 @@
 
             <div class="bottom">
 
-
             </div>
         </div>
     </main>

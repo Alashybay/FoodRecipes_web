@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +12,37 @@
 <body>
       <div class="container">
         <div class="box form-box">
+            <?php include_once "db/conn.php"; 
+                if(isset($_POST['submit'])){
+                    $email = $_POST['email'];
+                    $password = $_POST['password'];
+                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        echo "<script>alert('Invalid email format');</script>";
+                    } else if (empty($password)) {
+                        echo "<script>alert('Please fill in all fields');</script>";
+                    } else {
+                        $sql = "SELECT * FROM users WHERE email = '$email'";
+                        $result = mysqli_query($conn, $sql);
+                        $num_rows = mysqli_num_rows($result);
+                        if ($num_rows > 0) {
+                            $row = mysqli_fetch_assoc($result);
+                            if (password_verify($password, $row['password'])) {
+                                session_start();
+                                $_SESSION['id'] = $row['id'];
+                                $_SESSION['name'] = $row['name'];
+                                $_SESSION['surname'] = $row['surname'];
+                                $_SESSION['email'] = $row['email'];
+                                $_SESSION['is_admin'] = $row['is_admin'];
+                                echo "<script>alert('Login successful'); window.location.href = 'home.php';</script>";
+                            } else {
+                                echo "<script>alert('Incorrect password');</script>";
+                            }
+                        } else {
+                            echo "<script>alert('Email does not exist');</script>";
+                        }
+                    }   
+                }
+            ?>
             <header> Login </header>
             <form action="" method="post">
                 <div class="field input">

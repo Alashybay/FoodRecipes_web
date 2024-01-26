@@ -1,7 +1,8 @@
-<!-- <?php 
-$host = "localhost";
-$username = "root";
-$password = "root";
-$database = "food_recepies";
+<!-- connect to db -->
+<?php
+    $conn = mysqli_connect('localhost', 'root', '', 'food-recipies');
 
-$conn = new mysqli_connect($host, $username, $password, $database); -->
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+?>

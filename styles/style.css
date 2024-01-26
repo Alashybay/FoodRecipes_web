@@ -191,7 +191,7 @@ main {
   border-radius: 20px;
   box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
     0 32px 64px -48px rgba(0, 0, 0, 0.5);
-  justify-content: center;
+  justify-content: space-between;
   place-self: center;
   width: 100%;
   margin-top: 15px;
@@ -322,7 +322,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 50vh;
+  min-height: 70vh;
 }
 .form-box-account header {
   font-size: 25px;
@@ -364,7 +364,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 60vh;
+  min-height: 80vh;
 }
 .form-box-create header {
   font-size: 25px;
