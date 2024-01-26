@@ -9,25 +9,42 @@
     <title>Home</title>
 </head>
 <body>
-    <?php include('partials/navbar.php') ?>
+   <div>
+        <?php include_once "utils/session.php"; 
+            if (!isset($_SESSION['id'])) {
+                header("Location: index.php");
+            }
+            include_once "php/conn.php";
+        
+            $user_id = $_SESSION['id'];
+            $sql = "SELECT * FROM users WHERE id = '$user_id'";
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_assoc($result);
+            $name = $row['name'];
+        
 
-    <main>
-        <div class="main-box top">
-            <div class="top">
-                <div>
-                    <h2>Welcome, USER!</h2>
-                    <p>Explore our recipes and categories below:</p>
+            include('partials/header.php') 
+        ?>
+
+        <main>
+            <div class="main-box top">
+                <div class="top">
+                    <div>
+                        <?php echo "<h2>Welcome, $name!</h2>"; ?>
+
+                        <p>Explore our recipes and categories below:</p>
+                    </div>
+                </div>
+
+                <?php include('partials/searchBar.php') ?>
+
+                <div class="bottom">
+
                 </div>
             </div>
+        </main>
 
-            <?php include('partials/searchBar.php') ?>
-
-            <div class="bottom">
-
-            </div>
-        </div>
-    </main>
-
-    <?php include('partials/footer.php') ?>
+        <?php include('partials/footer.php') ?>
+    </div>
 </body>
 </html>

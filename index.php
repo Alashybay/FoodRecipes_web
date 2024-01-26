@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +10,12 @@
 <body>
       <div class="container">
         <div class="box form-box">
-            <?php include_once "db/conn.php"; 
+            <?php 
+                include_once "utils/session.php";
+                if (isset($_SESSION['id'])) {
+                    header("Location: home.php");
+                }
+                include_once "php/conn.php"; 
                 if(isset($_POST['submit'])){
                     $email = $_POST['email'];
                     $password = $_POST['password'];
@@ -33,6 +36,7 @@
                                 $_SESSION['surname'] = $row['surname'];
                                 $_SESSION['email'] = $row['email'];
                                 $_SESSION['is_admin'] = $row['is_admin'];
+                                setcookie("id", $row['id'], time() + (86400 * 30), "/");
                                 echo "<script>alert('Login successful'); window.location.href = 'home.php';</script>";
                             } else {
                                 echo "<script>alert('Incorrect password');</script>";

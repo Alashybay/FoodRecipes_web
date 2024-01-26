@@ -9,7 +9,21 @@
     <title>My List</title>
 </head>
 <body>
-    <?php include('partials/navbar.php') ?>
+    <?php include_once "utils/session.php"; 
+        if (!isset($_SESSION['id'])) {
+            header("Location: index.php");
+        }
+        include_once "php/conn.php";
+    
+        $user_id = $_SESSION['id'];
+        $sql = "SELECT * FROM users WHERE id = '$user_id'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        $name = $row['name'];
+    
+
+        include('partials/header.php')
+    ?>
 
     <main>
         <div class="main-box top">

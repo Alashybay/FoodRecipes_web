@@ -1,26 +1,11 @@
-// $(document).ready(async function() {
-//     var box = $('#greetings')
-//     var parent = box.parent()
+// Import any required modules or libraries here
 
-//     async function renderUsers() {
-//         var users = await getUsers();
-//         users.forEach((user) => {
-//             var cloneBox = box.clone().append(user.name)
-//             parent.append(cloneBox)
-//         });
-//     } 
+// Define any global variables or constants here
 
-//     var reload = $('#reload')
-//     reload.click(async () => {
-//         await renderUsers()
-//     })
+// Define any helper functions or utility functions here
 
-//     renderUsers()
-// });
+// Define your main application logic here
 
-// async function getUsers() {
-//     var response = await fetch('/food-recipies/api/get_users.php');
-//     var data = await response.json();
-//     var users = await data.users
-//     return users
-// }
+// Call any necessary functions or methods to start your application
+
+// Export any functions or variables that need to be accessed from other files

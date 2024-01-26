@@ -10,7 +10,7 @@
 <body>
       <div class="container">
         <div class="box form-box">
-            <?php include_once "db/conn.php"; 
+            <?php include_once "php/conn.php"; 
                 
                 if(isset($_POST['submit'])){
                     $name = $_POST['name'];
