@@ -11,6 +11,10 @@
       <div class="container">
         <div class="box form-box">
             <?php include_once "php/conn.php"; 
+                include_once "utils/session.php";
+                if (isset($_SESSION['id'])) {
+                    header("Location: home.php");
+                }
                 
                 if(isset($_POST['submit'])){
                     $name = $_POST['name'];

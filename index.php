@@ -63,9 +63,6 @@
                     <input type="submit" class="btn" name="submit" value="Login" required>
                 </div>
                 <div class="links">
-                    Forgot password? <a href="resetPassword.php">Reset your password</a>
-                </div>
-                <div class="links">
                     Don't have account? <a href="registration.php">Sign Up Now</a>
                 </div>
             </form>

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
+    <script src="app.js"></script>
     <title>Users List</title>
 </head>
 <body>
@@ -50,7 +51,6 @@
                             <th>Full Name</th>
                             <th>Email</th>
                             <th>Role</th>
-                            <th>Recipes Added</th>
                             <th>Action</th> 
                         </tr>
                     </thead>
@@ -67,10 +67,9 @@
                                 } else {
                                     echo "<td>Guest</td>";
                                 }
-                                echo "<td>{$user['recipes_added']}</td>";
                                 echo "<td>";
-                                echo "<button onclick=\"confirmDelete({$user['id']})\">Delete</button>";
-                                echo "<button onclick=\"updateUserRole({$user['id']})\">Update Role</button>";
+                                echo "<button class='table-btn delete' onclick='deleteUser({$user['id']})'>Delete</button>";
+                                echo "<button class='table-btn updt' onclick='updateUserRole({$user['id']})'>Update Role</button>";
                                 echo "</td>"; 
                                 echo "</tr>";
                             }
@@ -82,51 +81,5 @@
     </main>
 
     <?php include('partials/footer.php') ?>
-
-    <script>
-        function confirmDelete(userId) {
-            var confirmation = confirm("Are you sure you want to delete this user?");
-            if (confirmation) {
-                // Perform AJAX request to deleteUser.php
-                var xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState == 4 && xhr.status == 200) {
-                        // Handle the response if needed
-                        alert(xhr.responseText);
-                        // Reload the page or update the user list
-                        location.reload();
-                    }
-                };
-                xhr.open("GET", 'deleteUser.php?id=' + userId, true);
-                xhr.send();
-            } else {
-                alert("User not deleted.");
-            }
-        }
-
-        function updateUserRole(userId) {
-            if (userId == <?php echo $user_id; ?>) {
-                alert("You cannot change your own role.");
-                return;
-            }
-            var confirmation = confirm("Are you sure you want to update this user's role?");
-            if (confirmation) {
-                // Perform AJAX request to updateUserRole.php
-                var xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState == 4 && xhr.status == 200) {
-                        // Handle the response if needed
-                        alert(xhr.responseText);
-                        // Reload the page or update the user list
-                        location.reload();
-                    }
-                };
-                xhr.open("GET", '/utils/updateUserRole.php?id=' + userId, true);
-                xhr.send();
-            } else {
-                alert("User role not updated.");
-            }
-        }
-    </script>
 </body>
 </html>

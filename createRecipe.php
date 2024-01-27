@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
+    <script src="js/app.js"></script>
     <title>Create recipe</title>
 </head>
 <body>
@@ -16,35 +17,44 @@
             header("Location: index.php");
             exit();
         }
+        // get current user 
+        $user_id = $_SESSION['id'];
+        $sql = "SELECT * FROM users WHERE id = '$user_id'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+        $name = $row['name'];
+        $surname = $row['surname'];
+
+        $full_name = $name . " " . $surname;
+
+        if (isset($_POST['submit'])) {
+            $title = $_POST['title'];
+            $description = $_POST['description'];
+            $category_name = $_POST['category_name'];
+            $additional_info = $_POST['additional_info'];
+            $author = $full_name;
+
+            if (strlen($description) < 20) {
+                echo "<script>alert('Description should be at least 20 characters long');</script>";
+
+            } else {
+                if (empty($title) || empty($description) || empty($additional_info) || empty($category_name)) {
+                    echo "<script>alert('Please fill in all fields');</script>";
+                } else {
+                    $sql = "INSERT INTO food_recipes ( title, description, category_name, additional_info, author) VALUES ('$title', '$description', '$category_name', '$additional_info', '$author')";
+                    $result = mysqli_query($conn, $sql);
+                    if ($result) {
+                        echo "<script>alert('Recipe created'); window.location.href = 'home.php';</script>";
+                    } else {
+                        echo "<script>alert('Recipe creation failed');</script>";
+                    }
+                }
+            }
+        }
     ?>
     <?php include('partials/header.php') ?>
     <div class="container-create">
         <div class="box form-box-create">
-            <?php
-                if(isset($_POST['submit'])){
-                    $title = $_POST['title'];
-                    $description = $_POST['description'];
-                    $category = $_POST['category'];
-                    $steps = $_POST['steps'];
-                    $images = $_POST['images'];
-                    $user_id = $_SESSION['id'];
-                    
-
-                    if (empty($title) || empty($description) || empty($steps) || empty($images) || empty($category_id) || empty($user_id)){
-                        echo "<script>alert('Please fill in all fields');</script>";
-                    } else {
-                        $sql = "INSERT INTO food_recipes (title, description, category, steps, images) VALUES ('$title', '$description', '$category', '$steps', '$images')";
-                        $result = mysqli_query($conn, $sql);
-
-                        if ($result) {
-                            echo "<script>alert('Recipe created successfully'); window.location.href = 'home.php';</script>";
-                            exit();
-                        } else {
-                            echo "<script>alert('Recipe creation failed');</script>";
-                        }
-                    }   
-                }
-            ?>
             <div class="close-link">
                 <a href="home.php">close</a>
             </div>
@@ -54,7 +64,8 @@
             <text>
                 <p>Fill the form and share your recipe with us!</p>
             </text>
-            <form action="" method="POST">
+            <form  method="POST" enctype="multipart/form-data">
+
                 <div class="field input">
                     <label for="title">Title</label>
                     <input type="text" name="title" id="title" autocomplete="off" required>
@@ -66,27 +77,22 @@
                 </div>
 
                 <div class="field input">
-                    <label for="category">Category</label>
-                    <select name="category" id="category" autocomplete="off" required>
+                    <label for="category_name">Category</label>
+                    <select name="category_name" id="category_name" autocomplete="off" required>
                         <option value="0">Select category</option>
                         <?php
                             $sql = "SELECT * FROM recipe_categories";
                             $result = mysqli_query($conn, $sql);
                             while ($row = mysqli_fetch_assoc($result)) {
-                                echo "<option value='".$row['id']."'>".$row['title']."</option>";
+                                echo "<option value='".$row['title']."'>".$row['title']."</option>";
                             }
                         ?>
                     </select>
                 </div>
 
                 <div class="field input">
-                    <label for="steps">Steps</label>
-                    <input type="text" name="steps" id="steps" autocomplete="off" required>
-                </div>
-                
-                <div class="field input">
-                    <label for="images">Images</label>
-                    <input type="text" name="images" id="images" autocomplete="off" required>
+                    <label for="additional_info">additional info.</label>
+                    <input type="text" name="additional_info" id="additional_info" autocomplete="off" required>
                 </div>
 
                 <div class="field">

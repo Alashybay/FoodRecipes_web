@@ -4,12 +4,10 @@
     </div>
     <nav class="nav-links">
         <a href="home.php">Home</a>
-        <a href="myList.php">My List</a>
 
         <?php 
             if ($_SESSION['is_admin'] == 1) {
                 echo "<a href='usersList.php'>Users List</a>";
-                echo "<a href='requestsList.php'>Requests</a>";
             }
         ?>
 

@@ -1,7 +1,7 @@
 <?php
-include_once "php/conn.php"; // Include your database connection file
+include_once "php/conn.php"; 
 
-if(isset($_POST['submit'])) { // Check if form is submitted
+if(isset($_POST['submit'])) {
     $name = $_POST['name'];
     $surname = $_POST['surname'];
     $email = $_POST['email'];
