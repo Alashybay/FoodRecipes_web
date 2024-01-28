@@ -68,8 +68,8 @@
                                     echo "<td>Guest</td>";
                                 }
                                 echo "<td>";
-                                echo "<button class='table-btn delete' onclick='deleteUser({$user['id']})'>Delete</button>";
-                                echo "<button class='table-btn updt' onclick='updateUserRole({$user['id']})'>Update Role</button>";
+                                echo "<button class='table-btn' onclick='deleteUser({$user['id']})'>Delete</button>";
+                                echo "<button class='table-btn' onclick='updateUserRole({$user['id']})'>Update Role</button>";
                                 echo "</td>"; 
                                 echo "</tr>";
                             }

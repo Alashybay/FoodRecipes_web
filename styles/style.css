@@ -164,6 +164,7 @@ main {
 .bottom {
   width: 100%;
   margin-top: 20px;
+  margin-bottom: 15%;
 }
 
 @media only screen and (max-width: 840px) {
@@ -269,17 +270,13 @@ footer a:hover {
 
 /* ------------------------------------------ */
 /* RECIPE CARD */
+#recipes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  justify-content: center;
 
-.save-btn {
-  height: 35px;
-  border-radius: 5px;
-  background-color: #40C057;
-  font-size: 15px;
-  cursor: pointer;
-  margin-top: 10px;
-  padding: 0px 10px;
 }
-
 .recipe-card {
   border: 1px solid #ddd;
   margin: 20px auto;
@@ -400,6 +397,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 90vh;
+  margin-bottom: 10%;
 }
 .form-box-create header {
   font-size: 25px;
@@ -522,13 +520,4 @@ tbody tr:hover td {
   opacity: 0.82;
   background: rgba(76, 68, 182, 0.7);
   color: #fff;
-}
-
-/* add normal colors here for delete and update */
-.table-btn.delete {
-  background-color: 
-}
-
-.table-btn.updt {
-  background-color: 
 }
