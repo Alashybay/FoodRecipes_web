@@ -52,9 +52,9 @@ function reloadPage() {
     window.location.reload();
 }
 
-
 function drawCards() {
     const element = document.getElementById('recipes');
+
 
     fetch('controllers/getRecipes.php')
         .then(response => response.json())
