@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Янв 28 2024 г., 13:16
+-- Время создания: Янв 28 2024 г., 17:52
 -- Версия сервера: 10.4.28-MariaDB
 -- Версия PHP: 8.0.28
 
@@ -41,12 +41,10 @@ CREATE TABLE `food_recipes` (
 --
 
 INSERT INTO `food_recipes` (`id`, `title`, `description`, `additional_info`, `author`, `category_name`) VALUES
-(19, 'New food', 'some new things', '1, do 2, bla bla', '', ''),
-(21, 'ALikhan\'s', 'foooood!', 'hello world', '', ''),
-(22, 'new', 'some', 'saf', 'Alikhan admin', 'Breakfast'),
-(23, 'cool', 'is it worth it', 'i like to train', 'Alikhan admin', 'Dinner'),
-(24, 'asf', 'as', 'asdf', 'Alikhan admin', 'Salad'),
-(25, 'New Show from kila', 'the best ever food you will ever try in your live', 'its me )', 'Alikhan admin', 'Appetizer');
+(27, 'Delicious Chocolate Cake', 'A rich and moist chocolate cake that will satisfy your sweet cravings.', 'Vegan, Gluten-free', 'Alikhan Admin', 'Dessert'),
+(28, 'Spicy Garlic Shrimp Pasta', 'A flavorful pasta dish with succulent shrimp, garlic, and a hint of spice.', 'Contains Shellfish', 'Alikhan Admin', 'Main-course'),
+(29, 'Fresh Mango Salsa Appetizer!', 'A refreshing salsa with ripe mangoes, tomatoes, cilantro, and lime juice.', 'Healthy, Vegan', 'Alikhan Admin', 'Appetizer'),
+(30, 'Classic Margherita Pizza', 'A simple yet delicious pizza with tomato sauce, fresh mozzarella, and basil.', 'Vegetarian', 'Alikhan Admin', 'Dinner');
 
 -- --------------------------------------------------------
 
@@ -97,9 +95,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `email`, `password`, `is_admin`) VALUES
-(19, 'Alikhan', 'admin', 'admin@gmail.com', '$2y$10$W3nJ3JUOhIPOL17Ktlj2buNZZXpw/cP//ySkTtF2U6n3JkiVDP/rO', 1),
-(29, 'change', 'asdf', 'asd@gmail.com', '$2y$10$275oMfPFqj1gO3Xix2QXWeRLqY7tzOsx3hyVjUdOLEd0TtEajtfWq', 0),
-(31, 'Alikhan', 'Guest', 'guest@gmail.com', '$2y$10$UCQfwtP/CDHUeQDlZbDEkOYU1nyI8kp8aVUrSUX0h9PwmcwIMXWHi', 0);
+(19, 'Alikhan', 'Admin', 'admin@gmail.com', '$2y$10$7bWcYfKTji37yZdCkCiiDOaGYa5I8/zm/qS8ZW4QNFFfZFho0AUbO', 1),
+(31, 'Alikhan', 'Guest', 'guest@gmail.com', '$2y$10$UCQfwtP/CDHUeQDlZbDEkOYU1nyI8kp8aVUrSUX0h9PwmcwIMXWHi', 0),
+(34, 'Alina', 'Admin', 'alina_admin@gmail.com', '$2y$10$cwIe.ZRyeJsGVzb.fpXcgud5a/M28MFrKgA07kwm1e.dmBNQmYsU2', 1),
+(35, 'Alina', 'Guest', 'alina_guest@gmail.com', '$2y$10$1uDR7euiSkdKbbT0ioBP0.0mj08XFeqcth4..J6cYA9YDxA4/RdcK', 0);
 
 --
 -- Индексы сохранённых таблиц
@@ -131,7 +130,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `food_recipes`
 --
 ALTER TABLE `food_recipes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT для таблицы `recipe_categories`
@@ -143,7 +142,7 @@ ALTER TABLE `recipe_categories`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
